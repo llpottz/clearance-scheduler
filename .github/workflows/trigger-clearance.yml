@@ -1,1 +1,16 @@
+name: Trigger Clearance Notifications
+
+on:
+  schedule:
+    - cron: '0 7 * * *'  # Runs daily at 07:00 GMT
+  workflow_dispatch:
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Supabase Edge Function
+        run: |
+          curl -X POST https://hzovjurlithmwtmxgnuy.supabase.co/functions/v1/hyper-worker \
+            -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6b3ZqdXJsaXRobXd0bXhnbnV5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njc0Nzk4OTksImV4cCI6MjA4MzA1NTg5OX0.OlYmtk-y1uOGzcUuVTO-xiuzpwbb0Sfo4PdF2N9EssU"
 
